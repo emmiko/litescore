@@ -1,6 +1,7 @@
 const express = require('express');
 const request = require('request-promise');
 const cheerio = require('cheerio');
+const schedule = require('node-schedule');
 
 const app = express();
 
@@ -36,13 +37,25 @@ const anchors = [
   {href: 'http://www.flashscore.mobi/water-polo/', title: 'Water Polo'}
 ];
 
-const scrapeToday = async () => {
+const scrape = async day => {
+  let parameter;
+  if (day === 'today') {
+    parameter = '';
+  } else if (day === 'yesterday') {
+    parameter = '?d=-1';
+  } else if (day === 'tomorrow') {
+    parameter = '?d=1';
+  } else {
+    console.log('Error: Invalid argument. Enter "today", "yesterday", or "tomorrow".');
+    process.exit(0);
+  }
   try {
     const sports = [];
     for (let index = 0; index < anchors.length; index++) {
       const anchor = anchors[index];
+      const url = anchor.href + parameter;
       const response = await request({
-        uri: anchor.href,
+        uri: url,
         method: 'GET',
         headers: {
           'Connection': 'keep-alive',
@@ -148,7 +161,10 @@ const scrapeToday = async () => {
   }
 };
 
-setInterval(scrapeToday, 120000); // 2 min.
+const time = '0 0 * * *'; // Midnight
+setInterval(scrape, 120000, 'today'); // 2 min.
+schedule.scheduleJob(time, () => scrape('yesterday'));
+schedule.scheduleJob(time, () => scrape('tomorrow'));
 
 const port = 2000 || process.env.PORT;
 
