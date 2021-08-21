@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request-promise');
 const cheerio = require('cheerio');
 const schedule = require('node-schedule');
+const fs = require('fs');
 
 const app = express();
 
@@ -156,6 +157,7 @@ const scrape = async day => {
       }
       sports.push(sport);
     }
+    fs.writeFileSync(`${day}.json`, JSON.stringify(sports));
   } catch (error) {
     console.log(error);
   }
