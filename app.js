@@ -169,9 +169,9 @@ const scrape = async day => {
 
 const time = '0 0 * * *'; // Midnight
 setInterval(scrape, 120000, TODAY); // 2 min.
-schedule.scheduleJob(time, () => scrape('yesterday'));
-schedule.scheduleJob(time, () => scrape('tomorrow'));
+schedule.scheduleJob(time, () => scrape(YESTERDAY));
+schedule.scheduleJob(time, () => scrape(TOMORROW));
 
 const port = 2000 || process.env.PORT;
 
-app.listen(port, () => console.log(`Server running on port ${port}`))
+app.listen(port, () => console.log(`Server running on port ${port}`));
