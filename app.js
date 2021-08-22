@@ -6,6 +6,10 @@ const fs = require('fs');
 
 const app = express();
 
+const TODAY = 'today';
+const YESTERDAY = 'yesterday';
+const TOMORROW = 'tomorrow';
+
 app.get('/', (req, res) => res.send('API is running...'));
 
 const anchors = [
@@ -40,11 +44,11 @@ const anchors = [
 
 const scrape = async day => {
   let parameter;
-  if (day === 'today') {
+  if (day === TODAY) {
     parameter = '';
-  } else if (day === 'yesterday') {
+  } else if (day === YESTERDAY) {
     parameter = '?d=-1';
-  } else if (day === 'tomorrow') {
+  } else if (day === TOMORROW) {
     parameter = '?d=1';
   } else {
     console.log('Error: Invalid argument. Enter "today", "yesterday", or "tomorrow".');
@@ -157,14 +161,14 @@ const scrape = async day => {
       }
       sports.push(sport);
     }
-    fs.writeFileSync(`${day}.json`, JSON.stringify(sports));
+    fs.writeFileSync(`database/${day}.json`, JSON.stringify(sports));
   } catch (error) {
     console.log(error);
   }
 };
 
 const time = '0 0 * * *'; // Midnight
-setInterval(scrape, 120000, 'today'); // 2 min.
+setInterval(scrape, 120000, TODAY); // 2 min.
 schedule.scheduleJob(time, () => scrape('yesterday'));
 schedule.scheduleJob(time, () => scrape('tomorrow'));
 
