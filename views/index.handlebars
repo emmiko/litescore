@@ -1,0 +1,55 @@
+<div id="main">
+  <p>
+    <a href="/">Soccer</a> | 
+    <a href="/hockey/">Hockey</a> | 
+    <a href="/tennis/">Tennis</a> | 
+    <a href="/basketball/">Basketball</a> | 
+    <a href="/handball/">Handball</a> | 
+    <a href="/volleyball/">Volleyball</a> | 
+    <a href="/baseball/">Baseball</a> | 
+    <a href="/american-football/">American Football</a> | 
+    <a href="/rugby-union/">Rugby Union</a> | 
+    <a href="/others/">More Sports ></a>
+  </p>
+  <p>
+    <a href="{{path}}">Today</a> | 
+    <a href="{{path}}?d=-1">Yesterday</a> | 
+    <a href="{{path}}?d=1">Tomorrow</a>
+  </p>
+  <p>
+    <a href="{{path}}{{parameterAllGames}}">All Games</a> | 
+    <a href="{{path}}?s=2">Live</a> | 
+    <a href="{{path}}{{parameterFinished}}">Finished</a>
+  </p>
+  <p><a href="">Refresh</a></p>
+  <h2>{{sport}} > {{day}} > {{status}}</h2>
+  <p><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
+  <div>
+    {{#each tournaments}}
+      <h4>{{title}}</h4>
+      {{#each matches}}
+        <span>{{time}}</span>
+        {{event}}
+        {{score}}
+        <br>
+      {{/each}}
+    {{else}}
+      <p>No match found</p>
+    {{/each}}
+  </div>
+  <p><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
+  <p><a href="">Refresh</a></p>
+    <p>
+    <a href="/">Soccer</a> | 
+    <a href="/hockey/">Hockey</a> | 
+    <a href="/tennis/">Tennis</a> | 
+    <a href="/basketball/">Basketball</a> | 
+    <a href="/handball/">Handball</a> | 
+    <a href="/volleyball/">Volleyball</a> | 
+    <a href="/baseball/">Baseball</a> | 
+    <a href="/american-football/">American Football</a> | 
+    <a href="/rugby-union/">Rugby Union</a> | 
+    <a href="/others">More Sports ></a>
+  </p>
+  <p><a href="#top">Top</a></p>
+</div>

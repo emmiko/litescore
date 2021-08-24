@@ -3,14 +3,14 @@ const request = require('request-promise');
 const cheerio = require('cheerio');
 const schedule = require('node-schedule');
 const fs = require('fs');
+const exphbs = require('express-handlebars');
 
 const app = express();
 
-const TODAY = 'today';
-const YESTERDAY = 'yesterday';
-const TOMORROW = 'tomorrow';
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
-app.get('/', (req, res) => res.send('API is running...'));
+app.use('/', require('./routes'));
 
 const anchors = [
   {href: 'http://www.flashscore.mobi/', title: 'Soccer'},
@@ -44,14 +44,14 @@ const anchors = [
 
 const scrape = async day => {
   let parameter;
-  if (day === TODAY) {
+  if (day === 'Today') {
     parameter = '';
-  } else if (day === YESTERDAY) {
+  } else if (day === 'Yesterday') {
     parameter = '?d=-1';
-  } else if (day === TOMORROW) {
+  } else if (day === 'Tomorrow') {
     parameter = '?d=1';
   } else {
-    console.log('Error: Invalid argument. Enter "today", "yesterday", or "tomorrow".');
+    console.log('Error: Invalid argument. Enter "Today", "Yesterday", or "Tomorrow".');
     process.exit(0);
   }
   try {
@@ -168,9 +168,9 @@ const scrape = async day => {
 };
 
 const time = '0 0 * * *'; // Midnight
-setInterval(scrape, 120000, TODAY); // 2 min.
-schedule.scheduleJob(time, () => scrape(YESTERDAY));
-schedule.scheduleJob(time, () => scrape(TOMORROW));
+setInterval(scrape, 120000, 'Today'); // 2 min.
+schedule.scheduleJob(time, () => scrape('Yesterday'));
+schedule.scheduleJob(time, () => scrape('Tomorrow'));
 
 const port = 2000 || process.env.PORT;
 
