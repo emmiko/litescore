@@ -17,7 +17,7 @@
     <a href="{{path}}?d=1" {{#ifEquals day 'Tomorrow'}}class="active"{{/ifEquals}}>Tomorrow</a>
   </p>
   <p>
-    <a href="{{path}}{{parameterAllGames}} {{#ifEquals status 'All Games'}}class="active"{{/ifEquals}}">All Games</a> | 
+    <a href="{{path}}{{parameterAllGames}}" {{#ifEquals status 'All Games'}}class="active"{{/ifEquals}}>All Games</a> | 
     <a href="{{path}}?s=2" {{#ifEquals status 'Live'}}class="active"{{/ifEquals}}>Live</a> | 
     <a href="{{path}}{{parameterFinished}}" {{#ifEquals status 'Finished'}}class="active"{{/ifEquals}}>Finished</a>
   </p>
