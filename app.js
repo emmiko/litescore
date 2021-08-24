@@ -154,6 +154,20 @@ const scrape = async day => {
             data.isSideTwoTennisServe = sideTwo.includes(tennisServe);
             data.setsScore = setsScore;
           }
+          if (anchor.title === 'Baseball') {
+            const sideOne = event.split(' - ')[0];
+            const sideTwo = event.split(' - ')[1];
+            const baseballServe = 'baseball-serve';
+            const baseballServeOpp = 'baseball-serve-opposite';
+            const baseballServeImage = '<img src="/res/image/blank.gif" class="baseball-serve">';
+            const baseballServeOppImage = '<img src="/res/image/blank.gif" class="baseball-serve-opposite">';
+            data.event = sideOne.replace(baseballServeImage, '') + ' - ' + sideTwo.replace(baseballServeImage, '');
+            data.event = sideOne.replace(baseballServeOppImage, '') + ' - ' + sideTwo.replace(baseballServeOppImage, '');
+            data.isSideOneBaseballServe = sideOne.includes(baseballServe);
+            data.isSideTwoBaseballServe = sideTwo.includes(baseballServe);
+            data.isSideOneBaseballServeOpp = sideOne.includes(baseballServeOpp);
+            data.isSideTwoBaseballServeOpp = sideTwo.includes(baseballServeOpp);
+          }
           console.log(data);
           tournament.matches.push(data);
         }
