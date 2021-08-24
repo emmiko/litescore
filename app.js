@@ -99,7 +99,7 @@ const scrape = async day => {
           } else {
             time = piece.match(/<span>(.*)<\/span>/)[1];
           }
-          let event = piece.match(/<\/span>(.*)<a/)[1].replace('</span>', '').trim();
+          let event = piece.match(/<\/span>(.*)<a/)[1].replace('</span>', '').replace(/&amp;/g, '&').trim();
           const score = piece.match(/<a href="[\s\S]*" class="[\s\S]*">(.*)<\/a>/)[1];
           let status;
           if (piece.includes('class="sched"')) {
