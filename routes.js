@@ -4,6 +4,9 @@ const fs = require('fs');
 
 const router = express.Router();
 
+const ifEquals = (arg1, arg2, options) => 
+  (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+
 router.get('/', (req, res) => {
   const {d, s} = req.query;
   try {
@@ -99,7 +102,8 @@ router.get('/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -202,7 +206,8 @@ router.get('/hockey/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -305,7 +310,8 @@ router.get('/tennis/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -408,7 +414,8 @@ router.get('/basketball/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -511,7 +518,8 @@ router.get('/handball/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -614,7 +622,8 @@ router.get('/volleyball/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -717,7 +726,8 @@ router.get('/baseball/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -820,7 +830,8 @@ router.get('/american-football/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -923,7 +934,8 @@ router.get('/rugby-union/', (req, res) => {
       sport, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);

@@ -1,25 +1,25 @@
 <div id="main">
   <p>
-    <a href="/">Soccer</a> | 
-    <a href="/hockey/">Hockey</a> | 
-    <a href="/tennis/">Tennis</a> | 
-    <a href="/basketball/">Basketball</a> | 
-    <a href="/handball/">Handball</a> | 
-    <a href="/volleyball/">Volleyball</a> | 
-    <a href="/baseball/">Baseball</a> | 
-    <a href="/american-football/">American Football</a> | 
-    <a href="/rugby-union/">Rugby Union</a> | 
+    <a href="/" {{#ifEquals path '/'}}class="active"{{/ifEquals}}>Soccer</a> | 
+    <a href="/hockey/" {{#ifEquals path '/hockey/'}}class="active"{{/ifEquals}}>Hockey</a> | 
+    <a href="/tennis/" {{#ifEquals path '/tennis/'}}class="active"{{/ifEquals}}>Tennis</a> | 
+    <a href="/basketball/" {{#ifEquals path '/basketball/'}}class="active"{{/ifEquals}}>Basketball</a> | 
+    <a href="/handball/" {{#ifEquals path '/handball/'}}class="active"{{/ifEquals}}>Handball</a> | 
+    <a href="/volleyball/" {{#ifEquals path '/volleyball/'}}class="active"{{/ifEquals}}>Volleyball</a> | 
+    <a href="/baseball/" {{#ifEquals path '/baseball/'}}class="active"{{/ifEquals}}>Baseball</a> | 
+    <a href="/american-football/" {{#ifEquals path '/american-football/'}}class="active"{{/ifEquals}}>American Football</a> | 
+    <a href="/rugby-union/" {{#ifEquals path '/rugby-union/'}}class="active"{{/ifEquals}}>Rugby Union</a> | 
     <a href="/others/">More Sports ></a>
   </p>
   <p>
-    <a href="{{path}}">Today</a> | 
-    <a href="{{path}}?d=-1">Yesterday</a> | 
-    <a href="{{path}}?d=1">Tomorrow</a>
+    <a href="{{path}}" {{#ifEquals day 'Today'}}class="active"{{/ifEquals}}>Today</a> | 
+    <a href="{{path}}?d=-1" {{#ifEquals day 'Yesterday'}}class="active"{{/ifEquals}}>Yesterday</a> | 
+    <a href="{{path}}?d=1" {{#ifEquals day 'Tomorrow'}}class="active"{{/ifEquals}}>Tomorrow</a>
   </p>
   <p>
-    <a href="{{path}}{{parameterAllGames}}">All Games</a> | 
-    <a href="{{path}}?s=2">Live</a> | 
-    <a href="{{path}}{{parameterFinished}}">Finished</a>
+    <a href="{{path}}{{parameterAllGames}} {{#ifEquals status 'All Games'}}class="active"{{/ifEquals}}">All Games</a> | 
+    <a href="{{path}}?s=2" {{#ifEquals status 'Live'}}class="active"{{/ifEquals}}>Live</a> | 
+    <a href="{{path}}{{parameterFinished}}" {{#ifEquals status 'Finished'}}class="active"{{/ifEquals}}>Finished</a>
   </p>
   <p><a href="">Refresh</a></p>
   <h2>{{sport}} > {{day}} > {{status}}</h2>
@@ -40,16 +40,16 @@
   <p><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
   <p><a href="">Refresh</a></p>
   <p>
-    <a href="/">Soccer</a> | 
-    <a href="/hockey/">Hockey</a> | 
-    <a href="/tennis/">Tennis</a> | 
-    <a href="/basketball/">Basketball</a> | 
-    <a href="/handball/">Handball</a> | 
-    <a href="/volleyball/">Volleyball</a> | 
-    <a href="/baseball/">Baseball</a> | 
-    <a href="/american-football/">American Football</a> | 
-    <a href="/rugby-union/">Rugby Union</a> | 
-    <a href="/others">More Sports ></a>
+    <a href="/" {{#ifEquals path '/'}}class="active"{{/ifEquals}}>Soccer</a> | 
+    <a href="/hockey/" {{#ifEquals path '/hockey/'}}class="active"{{/ifEquals}}>Hockey</a> | 
+    <a href="/tennis/" {{#ifEquals path '/tennis/'}}class="active"{{/ifEquals}}>Tennis</a> | 
+    <a href="/basketball/" {{#ifEquals path '/basketball/'}}class="active"{{/ifEquals}}>Basketball</a> | 
+    <a href="/handball/" {{#ifEquals path '/handball/'}}class="active"{{/ifEquals}}>Handball</a> | 
+    <a href="/volleyball/" {{#ifEquals path '/volleyball/'}}class="active"{{/ifEquals}}>Volleyball</a> | 
+    <a href="/baseball/" {{#ifEquals path '/baseball/'}}class="active"{{/ifEquals}}>Baseball</a> | 
+    <a href="/american-football/" {{#ifEquals path '/american-football/'}}class="active"{{/ifEquals}}>American Football</a> | 
+    <a href="/rugby-union/" {{#ifEquals path '/rugby-union/'}}class="active"{{/ifEquals}}>Rugby Union</a> | 
+    <a href="/others/">More Sports ></a>
   </p>
   <p><a href="#top">Top</a></p>
 </div>
