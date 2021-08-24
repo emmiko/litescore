@@ -931,6 +931,144 @@ router.get('/rugby-union/', (req, res) => {
   }
 });
 
+router.get('/others/', (req, res) => {
+  try {
+    const file = path.join(__dirname, `database/today.json`);
+    const information = JSON.parse(fs.readFileSync(file));
+    let aussieRulesCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Aussie Rules') {
+        info.tournaments.forEach(tournament => aussieRulesCount += tournament.matches.length);
+      }
+    });
+    let badmintonCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Badminton') {
+        info.tournaments.forEach(tournament => badmintonCount += tournament.matches.length);
+      }
+    });
+    let bandyCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Bandy') {
+        info.tournaments.forEach(tournament => bandyCount += tournament.matches.length);
+      }
+    });
+    let beachSoccerCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Beach Soccer') {
+        info.tournaments.forEach(tournament => beachSoccerCount += tournament.matches.length);
+      }
+    });
+    let beachVolleyballCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Beach Volleyball') {
+        info.tournaments.forEach(tournament => beachVolleyballCount += tournament.matches.length);
+      }
+    });
+    let boxingCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Boxing') {
+        info.tournaments.forEach(tournament => boxingCount += tournament.matches.length);
+      }
+    });
+    let cricketCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Cricket') {
+        info.tournaments.forEach(tournament => cricketCount += tournament.matches.length);
+      }
+    });
+    let dartsCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Darts') {
+        info.tournaments.forEach(tournament => dartsCount += tournament.matches.length);
+      }
+    });
+    let fieldHockeyCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Field Hockey') {
+        info.tournaments.forEach(tournament => fieldHockeyCount += tournament.matches.length);
+      }
+    });
+    let floorballCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Floorball') {
+        info.tournaments.forEach(tournament => floorballCount += tournament.matches.length);
+      }
+    });
+    let futsalCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Futsal') {
+        info.tournaments.forEach(tournament => futsalCount += tournament.matches.length);
+      }
+    });
+    let kabaddiCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Kabaddi') {
+        info.tournaments.forEach(tournament => kabaddiCount += tournament.matches.length);
+      }
+    });
+    let mmaCount = 0;
+    information.forEach(info => {
+      if (info.name === 'MMA') {
+        info.tournaments.forEach(tournament => mmaCount += tournament.matches.length);
+      }
+    });
+    let netballCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Netball') {
+        info.tournaments.forEach(tournament => netballCount += tournament.matches.length);
+      }
+    });
+    let rugbyLeagueCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Rugby League') {
+        info.tournaments.forEach(tournament => rugbyLeagueCount += tournament.matches.length);
+      }
+    });
+    let snookerCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Snooker') {
+        info.tournaments.forEach(tournament => snookerCount += tournament.matches.length);
+      }
+    });
+    let tableTennisCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Table Tennis') {
+        info.tournaments.forEach(tournament => tableTennisCount += tournament.matches.length);
+      }
+    });
+    let waterPoloCount = 0;
+    information.forEach(info => {
+      if (info.name === 'Water Polo') {
+        info.tournaments.forEach(tournament => waterPoloCount += tournament.matches.length);
+      }
+    });
+    res.render('others', {
+      aussieRulesCount,
+      badmintonCount,
+      bandyCount,
+      beachSoccerCount,
+      beachVolleyballCount,
+      boxingCount,
+      cricketCount,
+      dartsCount,
+      fieldHockeyCount,
+      floorballCount,
+      futsalCount,
+      kabaddiCount,
+      mmaCount,
+      netballCount,
+      rugbyLeagueCount,
+      snookerCount,
+      tableTennisCount,
+      waterPoloCount
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Server error');
+  }
+});
+
 router.get('/aussie-rules/', (req, res) => {
   const {d, s} = req.query;
   try {
