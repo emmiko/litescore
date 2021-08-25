@@ -1196,7 +1196,8 @@ router.get('/aussie-rules/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1301,7 +1302,8 @@ router.get('/badminton/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1406,7 +1408,8 @@ router.get('/bandy/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1511,7 +1514,8 @@ router.get('/beach-soccer/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1616,7 +1620,8 @@ router.get('/beach-volleyball/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1721,7 +1726,8 @@ router.get('/boxing/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1826,7 +1832,8 @@ router.get('/cricket/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -1931,7 +1938,8 @@ router.get('/darts/', (req, res) => {
       sportClass,
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2036,7 +2044,8 @@ router.get('/field-hockey/', (req, res) => {
       sportClass,
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2141,7 +2150,8 @@ router.get('/floorball/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2246,7 +2256,8 @@ router.get('/futsal/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2351,7 +2362,8 @@ router.get('/kabaddi/', (req, res) => {
       sportClass,
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2456,7 +2468,8 @@ router.get('/mma/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2561,7 +2574,8 @@ router.get('/netball/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2666,7 +2680,8 @@ router.get('/rugby-league/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2771,7 +2786,8 @@ router.get('/snooker/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2876,7 +2892,8 @@ router.get('/table-tennis/', (req, res) => {
       sportClass,
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
@@ -2981,7 +2998,8 @@ router.get('/water-polo/', (req, res) => {
       sportClass, 
       day, 
       status, 
-      tournaments
+      tournaments,
+      helpers: {ifEquals}
     });
   } catch (error) {
     console.log(error);
