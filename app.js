@@ -2,6 +2,7 @@ const express = require('express');
 const request = require('request-promise');
 const cheerio = require('cheerio');
 const schedule = require('node-schedule');
+const path = require('path');
 const fs = require('fs');
 const exphbs = require('express-handlebars');
 
@@ -9,6 +10,8 @@ const app = express();
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes'));
 
@@ -182,7 +185,7 @@ const scrape = async day => {
 };
 
 const time = '0 0 * * *'; // Midnight
-setInterval(scrape, 120000, 'Today'); // 2 min.
+// setInterval(scrape, 120000, 'Today'); // 2 min.
 schedule.scheduleJob(time, () => scrape('Yesterday'));
 schedule.scheduleJob(time, () => scrape('Tomorrow'));
 

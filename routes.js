@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Soccer';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -99,7 +100,8 @@ router.get('/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -115,6 +117,7 @@ router.get('/hockey/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Hockey';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -204,6 +207,7 @@ router.get('/hockey/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments,
@@ -219,6 +223,7 @@ router.get('/tennis/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Tennis';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -307,7 +312,8 @@ router.get('/tennis/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -323,6 +329,7 @@ router.get('/basketball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Basketball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -412,6 +419,7 @@ router.get('/basketball/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments,
@@ -427,6 +435,7 @@ router.get('/handball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Handball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -515,7 +524,8 @@ router.get('/handball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -531,6 +541,7 @@ router.get('/volleyball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Volleyball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -619,7 +630,8 @@ router.get('/volleyball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -635,6 +647,7 @@ router.get('/baseball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Baseball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -723,7 +736,8 @@ router.get('/baseball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -739,6 +753,7 @@ router.get('/american-football/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'American Football';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -827,7 +842,8 @@ router.get('/american-football/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments,
@@ -843,6 +859,7 @@ router.get('/rugby-union/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Rugby Union';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -932,6 +949,7 @@ router.get('/rugby-union/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments,
@@ -1085,6 +1103,7 @@ router.get('/aussie-rules/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Aussie Rules';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1173,7 +1192,8 @@ router.get('/aussie-rules/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1188,6 +1208,7 @@ router.get('/badminton/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Badminton';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1276,7 +1297,8 @@ router.get('/badminton/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1291,6 +1313,7 @@ router.get('/bandy/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Bandy';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1379,7 +1402,8 @@ router.get('/bandy/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1394,6 +1418,7 @@ router.get('/beach-soccer/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Beach Soccer';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1482,7 +1507,8 @@ router.get('/beach-soccer/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1497,6 +1523,7 @@ router.get('/beach-volleyball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Beach Volleyball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1585,7 +1612,8 @@ router.get('/beach-volleyball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1600,6 +1628,7 @@ router.get('/boxing/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Boxing';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1688,7 +1717,8 @@ router.get('/boxing/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1703,6 +1733,7 @@ router.get('/cricket/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Cricket';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1791,7 +1822,8 @@ router.get('/cricket/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -1806,6 +1838,7 @@ router.get('/darts/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Darts';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1895,6 +1928,7 @@ router.get('/darts/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments
@@ -1909,6 +1943,7 @@ router.get('/field-hockey/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Field Hockey';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -1998,6 +2033,7 @@ router.get('/field-hockey/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments
@@ -2012,6 +2048,7 @@ router.get('/floorball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Floorball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2100,7 +2137,8 @@ router.get('/floorball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2115,6 +2153,7 @@ router.get('/futsal/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Futsal';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2203,7 +2242,8 @@ router.get('/futsal/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2218,6 +2258,7 @@ router.get('/kabaddi/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Kabaddi';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2307,6 +2348,7 @@ router.get('/kabaddi/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments
@@ -2321,6 +2363,7 @@ router.get('/mma/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'MMA';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2409,7 +2452,8 @@ router.get('/mma/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2424,6 +2468,7 @@ router.get('/netball/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Netball';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2512,7 +2557,8 @@ router.get('/netball/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2527,6 +2573,7 @@ router.get('/rugby-league/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Rugby League';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2615,7 +2662,8 @@ router.get('/rugby-league/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2630,6 +2678,7 @@ router.get('/snooker/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Snooker';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2718,7 +2767,8 @@ router.get('/snooker/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments
@@ -2733,6 +2783,7 @@ router.get('/table-tennis/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Table Tennis';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2822,6 +2873,7 @@ router.get('/table-tennis/', (req, res) => {
       parameterAllGames,
       parameterFinished, 
       sport, 
+      sportClass,
       day, 
       status, 
       tournaments
@@ -2836,6 +2888,7 @@ router.get('/water-polo/', (req, res) => {
   const {d, s} = req.query;
   try {
     const sport = 'Water Polo';
+    const sportClass = sport.toLowerCase().replace(/ /g, '-');
     let day, status;
     if (d === '-1' && !s) {
       day = 'Yesterday';
@@ -2924,7 +2977,8 @@ router.get('/water-polo/', (req, res) => {
       path: req.path, 
       parameterAllGames,
       parameterFinished, 
-      sport, 
+      sport,
+      sportClass, 
       day, 
       status, 
       tournaments

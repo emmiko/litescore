@@ -1,0 +1,198 @@
+* {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+}
+
+body {
+  font-family: Tahoma, Verdana, "Geneva CE", Lucida, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background: #fff;
+  color: #656565;
+  line-height: 15px;
+}
+
+#main {
+  margin: 5px;
+}
+
+p.p-set {
+  padding: 5px 0px;
+  margin: 0px;
+}
+
+ul {
+  padding: 0px 2px;
+  margin: 0px;
+}
+
+img {
+  border: 0px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-size: 11px;
+  background-color: #990000;
+  color: #fff;
+  padding: 2px;
+  padding-left: 6px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+h2, h3 {
+  background-color: #990000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin: 5px 0px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h4 {
+  background-color: #000;
+  margin-bottom: 10px;
+  margin: 3px 0px;
+  font-weight: normal;
+}
+
+h5 {
+  background-color: #cc0000;
+  font-weight: normal;
+}
+
+#main h2 {
+  margin-top: 0px;
+}
+
+h2, h3 {
+  background-color: #004a86;
+}
+
+.soccer h2, .soccer h3, h3.soccer {
+  background-color: #016700;
+}
+
+.tennis h2, .tennis h3, h3.tennis {
+  background-color: #bf9a17;
+}
+
+.hockey h2, .hockey h3, h3.hockey {
+  background-color: #004a86;
+}
+
+.basketball h2, .basketball h3, h3.basketball {
+  background-color: #ab0000;
+}
+
+.baseball h2, .baseball h3, h3.baseball {
+  background-color: #006766;
+}
+
+.american-football h2, .american-football h3, h3.american-football {
+  background-color: #8e6340;
+}
+
+a {
+  color: #1c609f;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #990000;
+  text-decoration: none;
+}
+
+a.active {
+  color: #8d0503;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.active:hover {
+  text-decoration: underline;
+}
+
+p.line-bottom {
+  border-top: 1px solid #000;
+}
+
+p.menu {
+  border-bottom: 1px solid #000;
+}
+
+p.advert-top {
+  padding: 3px 6px 6px 6px;
+}
+
+p.advert-bottom {
+  padding: 8px 6px;
+}
+
+p.advert-top a, p.advert-bottom a {
+  color: #cc0000;
+}
+
+p.refresh-top, p.refresh-bottom {
+  padding: 8px 0px;
+}
+
+.logo {
+  height: 37px;
+  background-color: #000;
+}
+
+.logo img {
+  padding-top: 0px;
+  height: 25px;
+  padding: 6px 4px 6px 8px;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 2px 5px;
+}
+
+#score-data {
+  padding: 0px;
+}
+
+#score-data span {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+#score-data span.status {
+  margin-left: 6px;
+  margin-right: 0px;
+}
+
+#score-data span.canceled {
+  text-decoration: line-through;
+}
+
+#score-data a {
+  font-weight: bold;
+}
+
+.live {
+  color: #cc0000;
+}
+
+a.live, a.live:hover {
+  color: #cc0000 !important;
+}
+
+.other-sports-menu {
+  padding-bottom: 5px;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.other-sports-menu li {
+  padding-left: 6px;
+  padding-top: 3px;
+}

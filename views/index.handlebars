@@ -1,5 +1,5 @@
-<div id="main">
-  <p>
+<div id="main" class="{{sportClass}}">
+  <p class="p-set menu">
     <a href="/" {{#ifEquals path '/'}}class="active"{{/ifEquals}}>Soccer</a> | 
     <a href="/hockey/" {{#ifEquals path '/hockey/'}}class="active"{{/ifEquals}}>Hockey</a> | 
     <a href="/tennis/" {{#ifEquals path '/tennis/'}}class="active"{{/ifEquals}}>Tennis</a> | 
@@ -9,37 +9,34 @@
     <a href="/baseball/" {{#ifEquals path '/baseball/'}}class="active"{{/ifEquals}}>Baseball</a> | 
     <a href="/american-football/" {{#ifEquals path '/american-football/'}}class="active"{{/ifEquals}}>American Football</a> | 
     <a href="/rugby-union/" {{#ifEquals path '/rugby-union/'}}class="active"{{/ifEquals}}>Rugby Union</a> | 
-    <a href="/others/">More Sports ></a>
+    <a href="/others/">More Sports »</a>
   </p>
-  <p>
+  <p class="p-set menu">
     <a href="{{path}}" {{#ifEquals day 'Today'}}class="active"{{/ifEquals}}>Today</a> | 
     <a href="{{path}}?d=-1" {{#ifEquals day 'Yesterday'}}class="active"{{/ifEquals}}>Yesterday</a> | 
     <a href="{{path}}?d=1" {{#ifEquals day 'Tomorrow'}}class="active"{{/ifEquals}}>Tomorrow</a>
   </p>
-  <p>
+  <p class="p-set menu">
     <a href="{{path}}{{parameterAllGames}}" {{#ifEquals status 'All Games'}}class="active"{{/ifEquals}}>All Games</a> | 
     <a href="{{path}}?s=2" {{#ifEquals status 'Live'}}class="active"{{/ifEquals}}>Live</a> | 
     <a href="{{path}}{{parameterFinished}}" {{#ifEquals status 'Finished'}}class="active"{{/ifEquals}}>Finished</a>
   </p>
-  <p><a href="">Refresh</a></p>
-  <h2>{{sport}} > {{day}} > {{status}}</h2>
-  <p><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
-  <div>
+  <p class="refresh-top"><a href="">Refresh</a></p>
+  <h2>{{sport}} » {{day}} » {{status}}</h2>
+  <p class="advert-top"><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
+  <div id="score-data">
     {{#each tournaments}}
       <h4>{{title}}</h4>
       {{#each matches}}
-        <span>{{time}}</span>
-        {{event}}
-        {{score}}
-        <br>
+        <span>{{time}}</span>{{event}} <a href="" {{#ifEquals status 'Live'}}class="live"{{/ifEquals}}>{{score}}</a><br>
       {{/each}}
     {{else}}
       <p>No match found</p>
     {{/each}}
   </div>
-  <p><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
-  <p><a href="">Refresh</a></p>
-  <p>
+  <p class="advert-bottom"><a href="">Bet on {{sport}} from your mobile with Bet9ja!</a></p>
+  <p class="p-set line-bottom refresh-bottom"><a href="">Refresh</a></p>
+  <p class="p-set line-bottom">
     <a href="/" {{#ifEquals path '/'}}class="active"{{/ifEquals}}>Soccer</a> | 
     <a href="/hockey/" {{#ifEquals path '/hockey/'}}class="active"{{/ifEquals}}>Hockey</a> | 
     <a href="/tennis/" {{#ifEquals path '/tennis/'}}class="active"{{/ifEquals}}>Tennis</a> | 
@@ -49,7 +46,7 @@
     <a href="/baseball/" {{#ifEquals path '/baseball/'}}class="active"{{/ifEquals}}>Baseball</a> | 
     <a href="/american-football/" {{#ifEquals path '/american-football/'}}class="active"{{/ifEquals}}>American Football</a> | 
     <a href="/rugby-union/" {{#ifEquals path '/rugby-union/'}}class="active"{{/ifEquals}}>Rugby Union</a> | 
-    <a href="/others/">More Sports ></a>
+    <a href="/others/">More Sports »</a>
   </p>
-  <p><a href="#top">Top</a></p>
+  <p class="p-set line-bottom"><a href="#top">Top</a></p>
 </div>
