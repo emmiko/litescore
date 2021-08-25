@@ -196,3 +196,12 @@ a.live, a.live:hover {
   padding-left: 6px;
   padding-top: 3px;
 }
+
+.gamble-responsibly-footer a {
+  color: #656565;
+  text-decoration: none;
+}
+
+.gamble-responsibly-footer a:hover {
+  text-decoration: underline;
+}
