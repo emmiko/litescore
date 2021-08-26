@@ -83,9 +83,9 @@ const scrape = async day => {
         const segment = segments[index];
         const title = segment.split('</h4>')[0];
         let parts = segment.split('</h4>')[1];
-        if (parts.includes('Awaiting<br>updates')) {
-          parts = parts.replace(/Awaiting<br>updates/g, 'Awaiting updates');
-        }
+        if (parts.includes('Awaiting<br>updates')) parts = parts.replace(/Awaiting<br>updates/g, 'Awaiting updates');
+        if (parts.includes('Set 1<br>Tiebreak')) parts = parts.replace(/Set 1<br>Tiebreak/g, 'Set 1 Tiebreak');
+        if (parts.includes('Set 2<br>Tiebreak')) parts = parts.replace(/Set 2<br>Tiebreak/g, 'Set 2 Tiebreak');
         const pieces = parts.split('<br>');
         const tournament = {};
         tournament.title = title;
@@ -102,7 +102,9 @@ const scrape = async day => {
           } else {
             time = piece.match(/<span>(.*)<\/span>/)[1];
           }
-          let event = piece.match(/<\/span>(.*)<a/)[1].replace('</span>', '').replace(/&amp;/g, '&').trim();
+          const event = piece.match(/<\/span>(.*)<a/)[1].replace('</span>', '').replace(/&amp;/g, '&').trim();
+          let sideOne = event.split(' - ')[0];
+          let sideTwo = event.split(' - ')[1];
           const score = piece.match(/<a href="[\s\S]*" class="[\s\S]*">(.*)<\/a>/)[1];
           let status;
           if (piece.includes('class="sched"')) {
@@ -116,10 +118,8 @@ const scrape = async day => {
           } else if (piece.includes('class="fin"')) {
             status = 'Finished';
           }
-          const data = {time, event, score, status};
+          const data = {time, sideOne, sideTwo, score, status};
           if (anchor.title === 'Soccer') {
-            const sideOne = event.split(' - ')[0];
-            const sideTwo = event.split(' - ')[1];
             let sideOneRedCards, sideTwoRedCards;
             const redCardClass = 'rcard-';
             if (sideOne.includes(redCardClass)) {
@@ -134,13 +134,12 @@ const scrape = async day => {
             }
             const sideOneRedCardImage = `<img src="/res/image/blank.gif" class="rcard-${sideOneRedCards}">`;
             const sideTwoRedCardImage = `<img src="/res/image/blank.gif" class="rcard-${sideTwoRedCards}">`;
-            data.event = sideOne.replace(sideOneRedCardImage, '') + ' - ' + sideTwo.replace(sideTwoRedCardImage, '');
+            data.sideOne = sideOne.replace(sideOneRedCardImage, '');
+            data.sideTwo = sideTwo.replace(sideTwoRedCardImage, '');
             data.sideOneRedCards = sideOneRedCards;
             data.sideTwoRedCards = sideTwoRedCards;
           }
           if (anchor.title === 'Tennis') {
-            const sideOne = event.split(' - ')[0];
-            const sideTwo = event.split(' - ')[1];
             const tennisServe = 'tennis-serve';
             let setsScore;
             if (
@@ -152,24 +151,35 @@ const scrape = async day => {
               setsScore = '';
             }
             const tennisServeImage = '<img src="/res/image/blank.gif" class="tennis-serve">';
-            data.event = sideOne.replace(tennisServeImage, '') + ' - ' + sideTwo.replace(tennisServeImage, '');
+            data.sideOne = sideOne.replace(tennisServeImage, '');
+            data.sideTwo = sideTwo.replace(tennisServeImage, '');
             data.isSideOneTennisServe = sideOne.includes(tennisServe);
             data.isSideTwoTennisServe = sideTwo.includes(tennisServe);
             data.setsScore = setsScore;
           }
           if (anchor.title === 'Baseball') {
-            const sideOne = event.split(' - ')[0];
-            const sideTwo = event.split(' - ')[1];
             const baseballServe = 'baseball-serve';
             const baseballServeOpp = 'baseball-serve-opposite';
             const baseballServeImage = '<img src="/res/image/blank.gif" class="baseball-serve">';
             const baseballServeOppImage = '<img src="/res/image/blank.gif" class="baseball-serve-opposite">';
-            data.event = sideOne.replace(baseballServeImage, '') + ' - ' + sideTwo.replace(baseballServeImage, '');
-            data.event = sideOne.replace(baseballServeOppImage, '') + ' - ' + sideTwo.replace(baseballServeOppImage, '');
+            data.sideOne = sideOne.replace(baseballServeImage, '').replace(baseballServeOppImage, '');
+            data.sideTwo = sideTwo.replace(baseballServeImage, '').replace(baseballServeOppImage, '');
             data.isSideOneBaseballServe = sideOne.includes(baseballServe);
             data.isSideTwoBaseballServe = sideTwo.includes(baseballServe);
             data.isSideOneBaseballServeOpp = sideOne.includes(baseballServeOpp);
             data.isSideTwoBaseballServeOpp = sideTwo.includes(baseballServeOpp);
+          }
+          if (anchor.title === 'Cricket') {
+            const cricketBowling = 'cricket-bowling';
+            const cricketBatting = 'cricket-batting';
+            const cricketBowlingImage = '<img src="/res/image/blank.gif" class="cricket-bowling">';
+            const cricketBattingImage = '<img src="/res/image/blank.gif" class="cricket-batting">';
+            data.sideOne = sideOne.replace(cricketBowlingImage, '').replace(cricketBattingImage, '');
+            data.sideTwo = sideTwo.replace(cricketBowlingImage, '').replace(cricketBattingImage, '');
+            data.isSideOneCricketBowling = sideOne.includes(cricketBowling);
+            data.isSideTwoCricketBowling = sideTwo.includes(cricketBowling);
+            data.isSideOneCricketBatting = sideOne.includes(cricketBatting);
+            data.isSideTwoCricketBatting = sideTwo.includes(cricketBatting);
           }
           console.log(data);
           tournament.matches.push(data);
@@ -178,7 +188,7 @@ const scrape = async day => {
       }
       sports.push(sport);
     }
-    fs.writeFileSync(`database/${day}.json`, JSON.stringify(sports));
+    fs.writeFileSync(`database/${day.toLowerCase()}.json`, JSON.stringify(sports));
   } catch (error) {
     console.log(error);
   }

@@ -178,6 +178,68 @@ p.refresh-top, p.refresh-bottom {
   font-weight: bold;
 }
 
+.baseball-serve, #score-data .baseball-serve,
+.baseball-serve-opposite, #score-data .baseball-serve-opposite,
+.tennis-serve, #score-data .tennis-serve,
+.cricket-batting, #score-data .cricket-batting,
+.cricket-bowling, #score-data .cricket-bowling {
+  background-image: url('../img/icon-mobi.5.png');
+  background-repeat: no-repeat;
+  width: 8px;
+  height: 9px;
+  border: 0px;
+  margin-right: 3px;
+}
+
+.baseball-serve, #score-data .baseball-serve {
+  background-position: -5101px -3px !important;
+}
+
+.baseball-serve-opposite, #score-data .baseball-serve-opposite {
+  background-position: -5140px -3px !important;
+  width: 11px;
+}
+
+.tennis-serve, #score-data .tennis-serve {
+  background-position: -5061px -3px !important;
+}
+
+.cricket-batting, #score-data .cricket-batting {
+  background-position: -5081px -3px !important;
+}
+
+.cricket-bowling, #score-data .cricket-bowling {
+  background-position: -5121px -3px !important;
+}
+
+.rcard-1,
+.rcard-2,
+.rcard-3,
+.rcard-4 {
+  background-image: url('../img/icon-mobi.5.png');
+  background-repeat: no-repeat;
+  width: 8px;
+  height: 9px;
+  border: 0px;
+  margin-left: 2px;
+}
+
+.rcard-1 {
+  background-position: -3843px 100%;
+}
+
+.rcard-2 {
+  background-position: -4083px 100%;
+}
+
+.rcard-3 {
+  background-position: -4323px 100%;
+}
+
+.rcard-4 {
+  background-position: -4563px 100%;
+}
+
 .live {
   color: #cc0000;
 }
