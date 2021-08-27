@@ -194,7 +194,7 @@ const scrape = async day => {
   }
 };
 
-const time = '0 0 * * *'; // Midnight
+const time = '1 0 * * *'; // 00:01:00
 setInterval(scrape, 120000, 'Today'); // 2 min.
 schedule.scheduleJob(time, () => scrape('Yesterday'));
 schedule.scheduleJob(time, () => scrape('Tomorrow'));
